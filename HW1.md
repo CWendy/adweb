@@ -41,20 +41,20 @@ SecurityManager ：管理所有用户的安全操作。核心中的核心。
 鉴于Shiro是定义在一个web程序中的过滤器框架，我没有具体的做一个程序并将Shiro嵌入，而是简单学习了Shiro的各种使用方法。   
 web支持：   
 首先是在web中安装使用Shiro，只需要在web.xml中定义一个Shiro Servlet过滤器，Shiro默认配置是INI配置（一个不太习惯的）。   
-  <listener>   
-     <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>   
-  </listener>   
+  < listener >   
+     < listener-class >org.apache.shiro.web.env.EnvironmentLoaderListener< /listener-class >   
+  < /listener >   
   
-  <filter>  <!--加入过滤器-->   
-     <filter-name>ShiroFilter</filter-name>       
-     <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>   
-     <!-- 没有init-param属性就默认从classpath:shiro.ini装入INI配置 -->    
-  </filter>   
+  < filter >  <!--加入过滤器-->   
+     < filter-name >ShiroFilter< /filter-name >       
+     < filter-class > org.apache.shiro.web.servlet.IniShiroFilter < /filter-class >   
+     < !-- 没有init-param属性就默认从classpath:shiro.ini装入INI配置 -->    
+  < /filter >   
   
-  <filter-mapping>    
-      <filter-name>ShiroFilter</filter-name>    
-      <url-pattern>/*</url-pattern>     
-  </filter-mapping>    
+  < filter-mapping >    
+      < filter-name >ShiroFilter< / filter-name >    
+      < url-pattern >/*< / url-pattern >     
+  < / filter-mapping >    
 在Shiro中，之前的代码有提到获得subject和他的当前session，我们要对他们进行角色和权限的验证。要验证要先登录。   
 认证：   
   if ( !currentUser.isAuthenticated() ) {       
